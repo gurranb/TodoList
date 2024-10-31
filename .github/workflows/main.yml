@@ -22,6 +22,9 @@ jobs:
     - name: Count lines of code
       run: |
         find TodoListApp -name '*.cs' | xargs wc -l 
+    - name: Count amount of words
+      run: |
+        find TodoListApp -name '*.cs' | xargs wc -w 
     - name: Build proj
       run: cd TodoListApp && dotnet build TodoListApp.sln;
   
