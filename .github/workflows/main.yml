@@ -1,6 +1,10 @@
 name: Demo workflow
 
-on: workflow_dispatch
+on: 
+  push:
+    paths:
+      - '**/*.cs'
+  workflow_dispatch:
 
 jobs:
   print-stuff:
@@ -39,6 +43,5 @@ jobs:
         dotnet-version: 8
     - name: Display repo name and current branch name
       run: |
-        echo "Run information"
         echo "Repository name: $GITHUB_REPOSITORY"
         echo "Current branch name: ${GITHUB_REF##*/}"
