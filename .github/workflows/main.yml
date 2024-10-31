@@ -40,4 +40,4 @@ jobs:
     - name: Display repo name and current branch name
       run: |
         echo "Repository name: $GITHUB_REPOSITORY"
-        echo "Current branch name: ${GITHUB_REF##*/}
+        echo "Current branch name: ${GITHUB_REF##*/}"
