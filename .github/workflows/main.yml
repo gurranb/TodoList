@@ -45,3 +45,20 @@ jobs:
       run: |
         echo "Repository name: $GITHUB_REPOSITORY"
         echo "Current branch name: ${GITHUB_REF##*/}"
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run on Linux
+        run: echo "Running on Linux"
+
+  build-windows:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run on Windows
+        run: echo "Running on Windows"
