@@ -6,6 +6,19 @@ jobs:
   print-stuff:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: pwd
-      - run: ls
+    - uses: actions/checkout@v4
+    - run: pwd
+    - name: List files
+      run: cd TodoListApp.sln; ls
+  build-project:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4.1.0
+      with:
+        dotnet-version: 9
+    - name: debug
+      run: pwd; ls -lah;
+    - name: Build proj
+      run: cd TodoListApp.sln; dotnet build
+  
