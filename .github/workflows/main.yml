@@ -1,0 +1,47 @@
+name: Demo workflow
+
+on: 
+  push:
+    paths:
+      - '**/*.cs'
+  workflow_dispatch:
+
+jobs:
+  print-stuff:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - run: pwd
+    - name: List files
+      run: cd TodoListApp && dotnet build TodoListApp.sln; ls
+  build-project:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4.1.0
+      with:
+        dotnet-version: 9
+    - name: debug
+      run: pwd; ls -lah;
+    - name: Count lines of code
+      run: |
+        find TodoListApp -name '*.cs' | xargs wc -l 
+    - name: Count amount of words
+      run: |
+        find TodoListApp -name '*.cs' | xargs wc -w 
+    - name: Count amount of lines in frontend
+      run: |
+        find TodoListApp -name '*.cshtml' | xargs wc -l 
+    - name: Build proj
+      run: cd TodoListApp && dotnet build TodoListApp.sln;
+  tasks:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-dotnet@v4.1.0
+      with:
+        dotnet-version: 8
+    - name: Display repo name and current branch name
+      run: |
+        echo "Repository name: $GITHUB_REPOSITORY"
+        echo "Current branch name: ${GITHUB_REF##*/}"
