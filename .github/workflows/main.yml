@@ -19,6 +19,9 @@ jobs:
         dotnet-version: 9
     - name: debug
       run: pwd; ls -lah;
+    - name: Count lines of code
+      run: |
+        find TodoListApp -name '*.cs' | xargs wc -l 
     - name: Build proj
       run: cd TodoListApp && dotnet build TodoListApp.sln;
   
