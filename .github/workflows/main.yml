@@ -27,7 +27,7 @@ jobs:
         find TodoListApp -name '*.cs' | xargs wc -w 
     - name: Count amount of lines in frontend
       run: |
-        find TodoListApp -name '*.cshtml' | xargs wc -w 
+        find TodoListApp -name '*.cshtml' | xargs wc -l 
     - name: Build proj
       run: cd TodoListApp && dotnet build TodoListApp.sln;
   
