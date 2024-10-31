@@ -10,7 +10,6 @@ namespace TodoListApp.Pages
         public string Name { get; set; }
         public int MyProperty { get; set; }
         public string? LastName { get; set; }
-        public dddddddd MyProperty1 { get; set; }
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
