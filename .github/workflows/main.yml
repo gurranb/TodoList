@@ -20,5 +20,5 @@ jobs:
     - name: debug
       run: pwd; ls -lah;
     - name: Build proj
-      run: cd TodoListApp dotnet build TodoListApp.sln;
+      run: cd TodoListApp && dotnet build TodoListApp.sln;
   
